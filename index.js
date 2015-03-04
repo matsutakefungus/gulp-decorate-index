@@ -20,8 +20,8 @@ module.exports=function(options){
 		},
 		css : {
 			selector: 'link[rel=stylesheet]:not([data-ignore=true], [data-remove=true])',
-			ele:'<style type=\"text/css\"></style>',
-			eleSelector:'style[type=\"text/css\"]:not([data-ignore=true], [data-remove=true],[href$=\".css\"])',
+			ele:'<link rel=\"stylesheet\"></link>',
+			eleSelector:'link[rel=\"stylesheet\"]:not([data-ignore=true], [data-remove=true],[href$=\".css\"])',
 			getFileName: function(node) { return node.attr('href'); }
 		}
 	}
@@ -115,7 +115,7 @@ module.exports=function(options){
              });
              for(var i=0;i<options.cssFiles.length;i++){
              	var newEle = $(fragments.css.ele);
-             	newEle.attr('link',options.cssFiles[i]);
+             	newEle.attr('href',options.cssFiles[i]);
                 vhead.append(newEle)
              }
 			}
